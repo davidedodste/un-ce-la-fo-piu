@@ -38,10 +38,6 @@ const puliItinerary = [
           advice: 'Meglio visitare tra luglio e agosto per spettacoli d’acqua regolari.',
         },
       },
-      {
-        desc: "Shuili Farmer's Market Café (pranzo)",
-        map: 'https://www.google.com/maps?q=Shuili+Farmers+Market+Cafe',
-      },
     ],
   },
   {
@@ -109,10 +105,7 @@ const puliItinerary = [
           equipment: 'Scarpe comode, repellente, borraccia, impermeabile',
         },
       },
-      {
-        desc: 'Miyahara Dessert House (opzionale)',
-        map: 'https://www.google.com/maps?q=Miyahara+Taichung',
-      },
+
     ],
   },
   {
