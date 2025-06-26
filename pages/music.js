@@ -4,8 +4,6 @@ import Footer from '@components/Footer';
 
 // pages/programma.js
 import Link from 'next/link';
-import { useState } from 'react';
-
 
 // pages/music.js — Next.js client‑side random music generator ready for Netlify
 // --------------------------------------------------------------
