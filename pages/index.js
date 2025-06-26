@@ -3,12 +3,11 @@ import Link from 'next/link';
 
 import Header from '@components/Header';
 import Footer from '@components/Footer';
-import NavBar from '@components/NavBar';
 
 export default function Home() {
   return (
     <div className="container" style={{ maxWidth: '700px', margin: 'auto', padding: '20px' }}>
-      <NavBar />
+      
       {/* METADATI */}
       <Head>
         <title>Next.js Starter!</title>
