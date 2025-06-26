@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import itineraryData from '../data/puliItinerary'; // Assumendo che il file dati sia separato
+import itineraryData from './puliItinerary'; // Assumendo che il file dati sia separato
 
 export default function PuliFamilyProgram() {
   const [selectedDay, setSelectedDay] = useState(0);
