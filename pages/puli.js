@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import itineraryData from './puliItinerary'; // Assumendo che il file dati sia separato
+import puliItinerary from 'puliItinerary'; // Assumendo che il file dati sia separato
 
 export default function PuliFamilyProgram() {
   const [selectedDay, setSelectedDay] = useState(0);
 
-  const day = itineraryData[selectedDay];
+  const day = puliItinerary[selectedDay];
 
   return (
     <div className="container">
@@ -24,7 +24,7 @@ export default function PuliFamilyProgram() {
       </header>
 
       <nav className="days-nav">
-        {itineraryData.map((d, i) => (
+        {puliItinerary.map((d, i) => (
           <button
             key={i}
             className={`day-button ${selectedDay === i ? 'selected' : ''}`}

@@ -21,10 +21,7 @@ const puliItinerary = [
           equipment: 'Vestiti comodi, fazzoletti, cambio leggero',
         },
       },
-      {
-        desc: 'Cena al Mr. 鍋物 (hotpot)',
-        map: 'https://www.google.com/maps?q=Mr.%20鍋物%20Puli',
-      },
+      ,
     ],
   },
   {
