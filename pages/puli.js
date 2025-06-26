@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
-import { puliItinerary, equipmentSummary } from '../data/puliItinerary';
+import { puliItinerary, equipmentSummary } from './puliItinerary';
 
 export default function PuliFamilyProgram() {
   const [selectedDay, setSelectedDay] = useState(0);
