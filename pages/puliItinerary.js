@@ -21,7 +21,7 @@ const puliItinerary = [
           equipment: 'Vestiti comodi, fazzoletti, cambio leggero',
         },
       },
-      ,
+      
     ],
   },
   {
@@ -153,4 +153,4 @@ const equipmentSummary = [
   'Felpa extra (funivia, alta quota, musei)',
 ];
 
-export { puliItinerary, equipmentSummary };
+//export { puliItinerary, equipmentSummary };

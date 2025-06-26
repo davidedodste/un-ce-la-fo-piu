@@ -61,12 +61,7 @@ export default function PuliFamilyProgram() {
           </ul>
         </section>
 
-        <section className="guide-section">
-          <h2>Guida dettagliata attrazioni & attrezzature consigliate</h2>
-          <Link href="/puli-details">
-            <a className="link-highlight">📖 Vai alla guida dettagliata</a>
-          </Link>
-        </section>
+        
       </main>
 
       <style jsx>{`
