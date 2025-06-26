@@ -1,11 +1,15 @@
-// =============================
-// puliItinerary.js
-// =============================
+'use client';
 
-// 👉  Esportazioni **solo nominate** (niente export default)
-//     così Next.js non fa confusione negli import
+// Puli Family Itinerary – single‑file React component (Next.js)
+// Copia questo file come `/app/puli/page.js` (App Router) oppure dentro `pages/` se usi Pages Router.
 
-export const puliItinerary = [
+import Head from 'next/head';
+import { useState } from 'react';
+
+// ---------------------------
+// DATI ITINERARIO E ATTREZZATURA
+// ---------------------------
+const puliItinerary = [
   {
     day: 'Giorno 1',
     title: 'Arrivo & King Garden',
@@ -149,8 +153,8 @@ export const puliItinerary = [
   },
 ];
 
-// Riepilogo attrezzature generali per tutta la vacanza
-export const equipmentSummary = [
+// (Facoltativo) riepilogo attrezzatura se vuoi mostrarla più avanti
+const equipmentSummary = [
   'Scarpe comode e/o da trekking, scarpe da bagnare',
   'Costumi da bagno, asciugamani, felpa leggera',
   'Borraccia, snack, crema solare e repellente',
@@ -158,74 +162,59 @@ export const equipmentSummary = [
   'Felpa extra (funivia, alta quota, musei)',
 ];
 
-// =============================
-// Puli.js  (pagina Next.js – client component)
-// =============================
-
-'use client';
-
-import Head from 'next/head';
-import { useState } from 'react';
-import { puliItinerary } from './puliItinerary';
-
+// ---------------------------
+// COMPONENTE REATTIVO PRINCIPALE
+// ---------------------------
 export default function PuliFamilyProgram() {
   const [selectedDay, setSelectedDay] = useState(0);
   const day = puliItinerary[selectedDay];
 
   return (
-    <div className="container">
+    <> {/* React Fragment necessario per Head */}
       <Head>
         <title>Vacanza a Puli – Itinerario Famiglia</title>
-        <meta
-          name="description"
-          content="Programma di 7 giorni per famiglie con bambini: Puli, Sun Moon Lake, Taichung e dintorni."
-        />
+        <meta name="description" content="Programma di 7 giorni per famiglie con bambini: Puli, Sun Moon Lake, Taichung e dintorni." />
       </Head>
 
-      <header>
-        <h1 className="title">Vacanza a Puli – Itinerario Famiglia</h1>
-        <p className="subtitle">Seleziona un giorno per vedere le attività e i dettagli.</p>
-      </header>
+      <div className="container">
+        <header>
+          <h1 className="title">Vacanza a Puli – Itinerario Famiglia</h1>
+          <p className="subtitle">Seleziona un giorno per vedere le attività e i dettagli.</p>
+        </header>
 
-      <nav className="days-nav">
-        {puliItinerary.map((d, i) => (
-          <button
-            key={i}
-            className={`day-button ${selectedDay === i ? 'selected' : ''}`}
-            onClick={() => setSelectedDay(i)}
-            aria-pressed={selectedDay === i}
-          >
-            {d.day}
-          </button>
-        ))}
-      </nav>
+        <nav className="days-nav">
+          {puliItinerary.map((d, i) => (
+            <button
+              key={i}
+              className={`day-button ${selectedDay === i ? 'selected' : ''}`}
+              onClick={() => setSelectedDay(i)}
+              aria-pressed={selectedDay === i}
+            >
+              {d.day}
+            </button>
+          ))}
+        </nav>
 
-      <main>
-        <section className="day-details">
-          <h2>
-            {day.day} – {day.title}
-          </h2>
-          <ul>
-            {day.activities.map((act, idx) => (
-              <li key={idx} className="activity-item">
-                {act.desc}
-                {act.map && (
-                  <a
-                    href={act.map}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="map-link"
-                    aria-label={`Apri ${act.desc} su Google Maps`}
-                  >
-                    📍
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
-      </main>
+        <main>
+          <section className="day-details">
+            <h2>{day.day} – {day.title}</h2>
+            <ul>
+              {day.activities.map((act, idx) => (
+                <li key={idx} className="activity-item">
+                  {act.desc}
+                  {act.map && (
+                    <a href={act.map} target="_blank" rel="noopener noreferrer" className="map-link" aria-label={`Apri ${act.desc} su Google Maps`}>
+                      📍
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </main>
+      </div>
 
+      {/* ---------------- CSS IN JSX ---------------- */}
       <style jsx>{`
         .container {
           max-width: 900px;
@@ -316,6 +305,6 @@ export default function PuliFamilyProgram() {
           color: #005bb5;
         }
       `}</style>
-    </div>
+    </>
   );
 }
