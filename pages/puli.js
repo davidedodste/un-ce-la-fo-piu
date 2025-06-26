@@ -172,8 +172,13 @@ export default function PuliFamilyProgram() {
       </section>
 
       {/* TODO: Guida dettagliata da integrare qui con tutte le attrazioni e riepilogo attrezzature */}
-      {/* Guida completata da integrare qui */}
-
+       {/* Guida dettagliata attrazioni e attrezzature */}
+      <section className="program-section">
+        <h2>Guida attrazioni & attrezzature consigliate</h2>
+        <Link href="/puli-details">
+          <a className="link-highlight">📖 Vai alla guida dettagliata</a>
+        </Link>
+      </section>
     </div>
   );
 }
