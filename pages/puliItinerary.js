@@ -26,11 +26,11 @@ const puliItinerary = [
   },
   {
     day: 'Giorno 2',
-    title: 'Parco acquatico di Shuili',
+    title: 'Parco acquatico di Shuili (水里親水公園)',
     activities: [
       {
         desc: 'Giochi d’acqua al Parco sul fiume di Shuili',
-        map: 'https://www.google.com/maps?q=Shuili+Water+Park',
+        map: 'https://maps.app.goo.gl/HoFhtQRopX36yd539',
         details: {
           description: 'Giochi d’acqua, fontane, "water kingdom" naturale lungo il fiume. Aperto 24h.',
           familyTips: 'Fontane che schizzano, arcobaleni d’acqua in estate.',
