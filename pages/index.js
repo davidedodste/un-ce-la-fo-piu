@@ -6,7 +6,7 @@ import Footer from '@components/Footer';
 
 export default function Home() {
   return (
-    <div className="container" style={{ maxWidth: '700px', margin: 'auto', padding: '20px' }}>
+    <div className="container">
       
       {/* METADATI */}
       <Head>
@@ -23,11 +23,11 @@ export default function Home() {
         </p>
 
         {/* Sezione “Benessere” */}
-        <section style={{ margin: '40px 0' }}>
+        <section className="section-spaced">
           <h1>Benvenuto nella tua app di benessere</h1>
           <p>
             <Link href="/programma">
-              <a style={{ color: '#2e8b57', fontWeight: 'bold' }}>
+              <a className="link-highlight">
                 Vai al programma Energia &amp; Postura
               </a>
             </Link>

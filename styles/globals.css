@@ -27,10 +27,87 @@ code {
   font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
 }
 
+
 .container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: #2e8b57;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.day-button {
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 60px;
+  border: 2px solid #2e8b57;
+  background-color: #e0f0e9;
+  color: #2e8b57;
+  transition: all 0.3s ease;
+}
+
+.day-button.selected {
+  border: none;
+  background-color: #2e8b57;
+  color: white;
+}
+
+.program-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(46, 139, 87, 0.2);
+}
+
+.exercise-item {
+  margin-bottom: 10px;
+}
+
+.exercise-video-link {
+  color: #2e8b57;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.section-spaced {
+  margin: 40px 0;
+}
+
+.link-highlight {
+  color: #2e8b57;
+  font-weight: bold;
+  text-decoration: none;
 }
