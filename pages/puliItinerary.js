@@ -1,4 +1,4 @@
-const puliItinerary = [
+export const puliItinerary = [
   {
     day: 'Giorno 1',
     title: 'Arrivo & King Garden',
@@ -145,7 +145,7 @@ const puliItinerary = [
 ];
 
 // Riepilogo attrezzature generali per tutta la vacanza:
-const equipmentSummary = [
+export const equipmentSummary = [
   'Scarpe comode e/o da trekking, scarpe da bagnare',
   'Costumi da bagno, asciugamani, felpa leggera',
   'Borraccia, snack, crema solare e repellente',
