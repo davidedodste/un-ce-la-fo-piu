@@ -13,8 +13,8 @@ const puliItinerary = [
         },
       },
       {
-        desc: 'Visita a King Garden (Carton King)',
-        map: 'https://www.google.com/maps?q=Carton+King+Puli',
+        desc: 'Visita a King Garden (大黑松小倆口)',
+        map: 'https://maps.app.goo.gl/c19wqDDMReDHBNhF9',
         details: {
           description: 'Parco/castello e ristorante tutto in cartone.',
           familyTips: 'Sculture tattili, minisale gioco e gelati.',
