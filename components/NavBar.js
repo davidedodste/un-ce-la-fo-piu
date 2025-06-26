@@ -27,8 +27,10 @@ export default function NavBar() {
       }}
     >
       <Link href="/"><a style={linkStyle('/')}>Home</a></Link>
-      <Link href="/programma"><a style={linkStyle('/programma')}>Programma</a></Link>
+      <Link href="/programma"><a style={linkStyle('/programma')}>Esercizi quotidiani</a></Link>
+      <Link href="/puli"><a style={linkStyle('/puli')}>Vacanza a Puli</a></Link>
       <Link href="/about"><a style={linkStyle('/about')}>About</a></Link>
     </nav>
   );
 }
+
