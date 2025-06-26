@@ -1,4 +1,4 @@
-export const puliItinerary = [
+const puliItinerary = [
   {
     day: 'Giorno 1',
     title: 'Arrivo & King Garden',
@@ -13,30 +13,37 @@ export const puliItinerary = [
         },
       },
       {
-        desc: 'Visita a King Garden (大黑松小倆口)',
-        map: 'https://maps.app.goo.gl/c19wqDDMReDHBNhF9',
+        desc: 'Visita a King Garden (Carton King)',
+        map: 'https://www.google.com/maps?q=Carton+King+Puli',
         details: {
           description: 'Parco/castello e ristorante tutto in cartone.',
           familyTips: 'Sculture tattili, minisale gioco e gelati.',
           equipment: 'Vestiti comodi, fazzoletti, cambio leggero',
         },
       },
-      
+      {
+        desc: 'Cena al Mr. 鍋物 (hotpot)',
+        map: 'https://www.google.com/maps?q=Mr.%20鍋物%20Puli',
+      },
     ],
   },
   {
     day: 'Giorno 2',
-    title: 'Parco acquatico di Shuili (水里親水公園)',
+    title: 'Parco acquatico di Shuili',
     activities: [
       {
         desc: 'Giochi d’acqua al Parco sul fiume di Shuili',
-        map: 'https://maps.app.goo.gl/HoFhtQRopX36yd539',
+        map: 'https://www.google.com/maps?q=Shuili+Water+Park',
         details: {
           description: 'Giochi d’acqua, fontane, "water kingdom" naturale lungo il fiume. Aperto 24h.',
           familyTips: 'Fontane che schizzano, arcobaleni d’acqua in estate.',
           equipment: 'Costume da bagno, asciugamano, scarpe da scoglio, cremina solare, acqua',
           advice: 'Meglio visitare tra luglio e agosto per spettacoli d’acqua regolari.',
         },
+      },
+      {
+        desc: "Shuili Farmer's Market Café (pranzo)",
+        map: 'https://www.google.com/maps?q=Shuili+Farmers+Market+Cafe',
       },
     ],
   },
@@ -105,7 +112,10 @@ export const puliItinerary = [
           equipment: 'Scarpe comode, repellente, borraccia, impermeabile',
         },
       },
-
+      {
+        desc: 'Miyahara Dessert House (opzionale)',
+        map: 'https://www.google.com/maps?q=Miyahara+Taichung',
+      },
     ],
   },
   {
@@ -145,7 +155,7 @@ export const puliItinerary = [
 ];
 
 // Riepilogo attrezzature generali per tutta la vacanza:
-export const equipmentSummary = [
+const equipmentSummary = [
   'Scarpe comode e/o da trekking, scarpe da bagnare',
   'Costumi da bagno, asciugamani, felpa leggera',
   'Borraccia, snack, crema solare e repellente',
@@ -153,4 +163,4 @@ export const equipmentSummary = [
   'Felpa extra (funivia, alta quota, musei)',
 ];
 
-export default { puliItinerary, equipmentSummary };
+export { puliItinerary, equipmentSummary };
