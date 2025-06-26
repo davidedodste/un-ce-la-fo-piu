@@ -1,7 +1,10 @@
+import Head from 'next/head';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+
 // pages/programma.js
-import Head from 'next/head'
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from 'next/link';
+import { useState } from 'react';
 
 const program = [
   {

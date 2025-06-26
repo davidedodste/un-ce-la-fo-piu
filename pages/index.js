@@ -7,6 +7,7 @@ import Footer from '@components/Footer';
 export default function Home() {
   return (
     <div className="container" style={{ maxWidth: '700px', margin: 'auto', padding: '20px' }}>
+      <NavBar />
       {/* METADATI */}
       <Head>
         <title>Next.js Starter!</title>
@@ -16,9 +17,9 @@ export default function Home() {
       {/* CONTENUTO PRINCIPALE */}
       <main>
         {/* Sezione “starter” */}
-        <Header title="Welcome to my app!" />
+        <Header title="Un ce la fo più" />
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Qualche pagina pe' ripigliassi un po'
         </p>
 
         {/* Sezione “Benessere” */}
