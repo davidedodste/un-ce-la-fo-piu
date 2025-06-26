@@ -1,51 +1,49 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Head from 'next/head';
+import Link from 'next/link';
+
+import Header from '@components/Header';
+import Footer from '@components/Footer';
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="container" style={{ maxWidth: '700px', margin: 'auto', padding: '20px' }}>
+      {/* METADATI */}
       <Head>
         <title>Next.js Starter!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* CONTENUTO PRINCIPALE */}
       <main>
+        {/* Sezione “starter” */}
         <Header title="Welcome to my app!" />
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
+
+        {/* Sezione “Benessere” */}
+        <section style={{ margin: '40px 0' }}>
+          <h1>Benvenuto nella tua app di benessere</h1>
+          <p>
+            <Link href="/programma">
+              <a style={{ color: '#2e8b57', fontWeight: 'bold' }}>
+                Vai al programma Energia &amp; Postura
+              </a>
+            </Link>
+          </p>
+        </section>
+
+        {/* Sezione “About” */}
+        <section>
+          <h2>Home</h2>
+          <Link href="/about">
+            <a>Vai a About</a>
+          </Link>
+        </section>
       </main>
 
+      {/* FOOTER */}
       <Footer />
     </div>
-  )
-}
-
-import Link from 'next/link'
-
-export default function Home() {
-  return (
-    <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
-      <h1>Benvenuto nella tua app di benessere</h1>
-      <p>
-        <Link href="/programma">
-          <a style={{ color: '#2e8b57', fontWeight: 'bold' }}>Vai al programma Energia & Postura</a>
-        </Link>
-      </p>
-    </div>
-  )
-}
-
-import Link from 'next/link'
-
-export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <Link href="/about">
-        <a>Vai a About</a>
-      </Link>
-    </div>
-  )
+  );
 }
