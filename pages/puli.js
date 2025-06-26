@@ -4,13 +4,13 @@ import { useState } from 'react';
 
 /**
  * Pagina Next.js – Programma settimanale "Vacanza a Puli" (famiglie con bambini)
- * Basato sull'itinerario 7 giorni fornito in chat, con link Google Maps per ogni tappa.
- * Riutilizza le classi CSS globali già esistenti (container, title, subtitle, buttons-container,
+ * Include: itinerario giorno‑per‑giorno + guida dettagliata attrazioni con attrezzature consigliate.
+ * Riutilizza le classi CSS globali (container, title, subtitle, buttons-container,
  * day-button, selected, program-section, exercise-item, link-highlight, ecc.).
  */
 
 export default function PuliFamilyProgram() {
-  // Itinerario completo con link Maps
+  // Itinerario giorno‑per‑giorno con link Maps
   const itinerary = [
     {
       day: 'Giorno 1',
@@ -171,14 +171,9 @@ export default function PuliFamilyProgram() {
         </ul>
       </section>
 
-      {/* Footer */}
-      <footer style={{ textAlign: 'center', marginTop: '40px', color: '#666' }}>
-        Buona vacanza e ricorda di portare acqua, protezione solare e tanta curiosità!
-        <br />
-        <Link href="/">
-          <a className="link-highlight">⬅ Torna alla Home</a>
-        </Link>
-      </footer>
+      {/* TODO: Guida dettagliata da integrare qui con tutte le attrazioni e riepilogo attrezzature */}
+      {/* Guida completata da integrare qui */}
+
     </div>
   );
 }
