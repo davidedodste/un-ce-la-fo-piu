@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Programma settimanale energia e postura</title>
+  <title>Programma Energia & Postura - Web App</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,19 +11,61 @@
       background: #f0f8ff;
       color: #333;
       line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    h1, h2 {
+    h1 {
       color: #2e8b57;
+      text-align: center;
+    }
+    .day-selector {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .day-btn {
+      padding: 8px 12px;
+      border: 1px solid #2e8b57;
+      background: #e0f0e9;
+      color: #2e8b57;
+      cursor: pointer;
+      border-radius: 4px;
+      min-width: 50px;
+      text-align: center;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .day-btn:hover {
+      background: #c1decf;
+    }
+    .day-btn.active {
+      background: #2e8b57;
+      color: white;
+      cursor: default;
     }
     section {
-      background: #ffffff;
+      background: #fff;
       border-radius: 8px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
+      padding: 20px;
       box-shadow: 0 2px 6px rgba(46,139,87,0.2);
+      margin-bottom: 20px;
     }
     ul {
       margin-left: 20px;
+    }
+    a.video-link {
+      display: inline-block;
+      margin-top: 5px;
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    a.video-link:hover {
+      text-decoration: underline;
     }
     footer {
       font-size: 0.9em;
@@ -36,78 +78,133 @@
   </style>
 </head>
 <body>
-  <h1>Programma settimanale per aumentare energia e migliorare postura</h1>
-  <p>Un programma semplice e graduale per chi è sedentario, stanco e con muscoli indolenziti. Obiettivo: più energia, meno tensioni.</p>
+  <h1>Programma Energia & Postura</h1>
+  <p style="text-align:center;">Scegli un giorno per vedere gli esercizi e i video consigliati.</p>
 
-  <section>
-    <h2>Giorno 1 – Qi Gong + Stretching collo e spalle (10-15 min)</h2>
-    <ul>
-      <li><strong>Posizione eretta rilassata</strong> (2 min): piedi alla larghezza spalle, respira lentamente.</li>
-      <li><strong>Sollevare le mani</strong> (10 ripetizioni): inspira sollevando le mani davanti al petto, espira abbassandole.</li>
-      <li><strong>Abbracciare l’albero</strong> (2 min): mani davanti al corpo come se abbracciassi un tronco, muovi dolcemente avanti e indietro.</li>
-      <li><strong>Stretching collo:</strong> inclina lentamente la testa a destra e sinistra, avanti e indietro (10 volte per direzione).</li>
-      <li><strong>Rotazioni spalle:</strong> fai rotazioni lente in avanti e indietro (10 volte ciascuna).</li>
-    </ul>
-  </section>
+  <div class="day-selector" id="daySelector"></div>
 
-  <section>
-    <h2>Giorno 2 – Passeggiata + Respirazione profonda (20 min)</h2>
-    <ul>
-      <li>Cammina a passo tranquillo, concentrandoti sul respiro.</li>
-      <li>Inspira contando fino a 4, espira contando fino a 6.</li>
-      <li>Ogni 5 minuti, rallenta e fai qualche rotazione del busto e spalle.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Giorno 3 – Tai Chi principianti (15 min)</h2>
-    <ul>
-      <li><strong>Posizione di partenza:</strong> piedi alla larghezza spalle, ginocchia morbide (2 min).</li>
-      <li><strong>Passo avanti lento</strong> (10 volte): sposta peso sul piede sinistro, fai un passo avanti con il destro lentamente.</li>
-      <li><strong>Spingere le mani</strong> (10 ripetizioni): palmi davanti al petto, spingi una mano avanti mentre l’altra segue.</li>
-      <li><strong>Passo laterale</strong> (10 volte per lato): sposta peso su un piede e fai un passo laterale mantenendo corpo rilassato.</li>
-      <li><strong>Respiro consapevole:</strong> termina respirando profondamente per 2 minuti.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Giorno 4 – Riposo o attività leggera</h2>
-    <ul>
-      <li>Fai qualche camminata leggera o riposo attivo.</li>
-      <li>Puoi fare qualche esercizio di stretching se ti senti teso.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Giorno 5 – Yoga dolce (15-20 min)</h2>
-    <ul>
-      <li><strong>Posizione del bambino (Balasana):</strong> 2 min.</li>
-      <li><strong>Gatto-mucca:</strong> 10 ripetizioni, respira sincronizzando il movimento.</li>
-      <li><strong>Cane a testa in giù:</strong> mantieni 20-30 secondi.</li>
-      <li><strong>Guerriero I:</strong> 30 secondi per lato.</li>
-      <li><strong>Respirazione profonda seduta:</strong> 3-5 minuti per rilassarti.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Giorno 6 – Passeggiata + Stretching gambe e schiena (20 min)</h2>
-    <ul>
-      <li>Cammina 10 minuti.</li>
-      <li>Stretching: piegati lentamente in avanti per allungare la schiena e le gambe, mantieni 20 secondi.</li>
-      <li>Esegui allungamenti laterali con braccia sopra la testa (10 volte per lato).</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Giorno 7 – Riposo attivo o attività libera</h2>
-    <ul>
-      <li>Puoi fare una breve passeggiata o qualche esercizio leggero.</li>
-      <li>Rilassati e ascolta il tuo corpo.</li>
-    </ul>
-  </section>
+  <section id="dayContent"></section>
 
   <footer>
-    <p>Consigli: esegui gli esercizi lentamente, respira profondamente e ascolta il tuo corpo. Buona pratica!</p>
+    <p>Muoviti con gradualità, respira profondamente e ascolta il tuo corpo. Buona pratica!</p>
   </footer>
+
+  <script>
+    const program = [
+      {
+        day: "Giorno 1",
+        title: "Qi Gong + Stretching collo e spalle (10-15 min)",
+        exercises: [
+          {desc: "Posizione eretta rilassata (2 min): piedi alla larghezza spalle, respira lentamente."},
+          {desc: "Sollevare le mani (10 ripetizioni): inspira sollevando le mani davanti al petto, espira abbassandole.",
+           video: "https://www.youtube.com/watch?v=jMuHgj3FF_k"},
+          {desc: "Abbracciare l’albero (2 min): mani davanti al corpo come se abbracciassi un tronco, muovi dolcemente avanti e indietro."},
+          {desc: "Stretching collo: inclina lentamente la testa a destra e sinistra, avanti e indietro (10 volte per direzione)."},
+          {desc: "Rotazioni spalle: fai rotazioni lente in avanti e indietro (10 volte ciascuna)."}
+        ]
+      },
+      {
+        day: "Giorno 2",
+        title: "Passeggiata + Respirazione profonda (20 min)",
+        exercises: [
+          {desc: "Cammina a passo tranquillo, concentrandoti sul respiro."},
+          {desc: "Inspira contando fino a 4, espira contando fino a 6."},
+          {desc: "Ogni 5 minuti, rallenta e fai qualche rotazione del busto e spalle."}
+        ],
+        video: "https://www.youtube.com/watch?v=J0dc2p1U5TU" // respirazione profonda video
+      },
+      {
+        day: "Giorno 3",
+        title: "Tai Chi principianti (15 min)",
+        exercises: [
+          {desc: "Posizione di partenza: piedi alla larghezza spalle, ginocchia morbide (2 min)."},
+          {desc: "Passo avanti lento (10 volte): sposta peso sul piede sinistro, fai un passo avanti con il destro lentamente.",
+           video: "https://www.youtube.com/watch?v=cEOS2zoyQw4"},
+          {desc: "Spingere le mani (10 ripetizioni): palmi davanti al petto, spingi una mano avanti mentre l’altra segue."},
+          {desc: "Passo laterale (10 volte per lato): sposta peso su un piede e fai un passo laterale mantenendo corpo rilassato."},
+          {desc: "Respiro consapevole: termina respirando profondamente per 2 minuti."}
+        ]
+      },
+      {
+        day: "Giorno 4",
+        title: "Riposo o attività leggera",
+        exercises: [
+          {desc: "Fai qualche camminata leggera o riposo attivo."},
+          {desc: "Puoi fare qualche esercizio di stretching se ti senti teso."}
+        ]
+      },
+      {
+        day: "Giorno 5",
+        title: "Yoga dolce (15-20 min)",
+        exercises: [
+          {desc: "Posizione del bambino (Balasana): 2 min.",
+           video: "https://www.youtube.com/watch?v=4C-gxOE0j7s"},
+          {desc: "Gatto-mucca: 10 ripetizioni, respira sincronizzando il movimento.",
+           video: "https://www.youtube.com/watch?v=kqnua4rHVVA"},
+          {desc: "Cane a testa in giù: mantieni 20-30 secondi.",
+           video: "https://www.youtube.com/watch?v=1Jzr6K-p9XE"},
+          {desc: "Guerriero I: 30 secondi per lato.",
+           video: "https://www.youtube.com/watch?v=v7AYKMP6rOE&t=344s"},
+          {desc: "Respirazione profonda seduta: 3-5 minuti per rilassarti."}
+        ]
+      },
+      {
+        day: "Giorno 6",
+        title: "Passeggiata + Stretching gambe e schiena (20 min)",
+        exercises: [
+          {desc: "Cammina 10 minuti."},
+          {desc: "Stretching: piegati lentamente in avanti per allungare la schiena e le gambe, mantieni 20 secondi."},
+          {desc: "Esegui allungamenti laterali con braccia sopra la testa (10 volte per lato)."}
+        ]
+      },
+      {
+        day: "Giorno 7",
+        title: "Riposo attivo o attività libera",
+        exercises: [
+          {desc: "Puoi fare una breve passeggiata o qualche esercizio leggero."},
+          {desc: "Rilassati e ascolta il tuo corpo."}
+        ]
+      }
+    ];
+
+    const daySelector = document.getElementById('daySelector');
+    const dayContent = document.getElementById('dayContent');
+
+    function renderDay(index) {
+      const day = program[index];
+      dayContent.innerHTML = `<h2>${day.day} – ${day.title}</h2>`;
+      let ul = '<ul>';
+      day.exercises.forEach((ex, i) => {
+        ul += `<li>${ex.desc}`;
+        if (ex.video) {
+          ul += `<br><a class="video-link" href="${ex.video}" target="_blank" rel="noopener">▶️ Video esercizio</a>`;
+        }
+        ul += '</li>';
+      });
+      ul += '</ul>';
+
+      if (day.video && !day.exercises.some(e => e.video === day.video)) {
+        ul += `<p><a class="video-link" href="${day.video}" target="_blank" rel="noopener">▶️ Video guida generale</a></p>`;
+      }
+      dayContent.innerHTML += ul;
+
+      // Update active button
+      Array.from(daySelector.children).forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === index);
+      });
+    }
+
+    // Create buttons
+    program.forEach((day, i) => {
+      const btn = document.createElement('button');
+      btn.textContent = day.day;
+      btn.className = 'day-btn';
+      btn.onclick = () => renderDay(i);
+      daySelector.appendChild(btn);
+    });
+
+    // Render first day by default
+    renderDay(0);
+  </script>
 </body>
 </html>
