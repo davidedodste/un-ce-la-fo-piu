@@ -153,4 +153,4 @@ export const equipmentSummary = [
   'Felpa extra (funivia, alta quota, musei)',
 ];
 
-//export { puliItinerary, equipmentSummary };
+export default { puliItinerary, equipmentSummary };
