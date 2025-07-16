@@ -1,3 +1,16 @@
+import Head from 'next/head';
+import Link from 'next/link';
+
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import dynamic from 'next/dynamic';
+
+const AllenamentoApp = dynamic(() => import('../AllenamentoApp'), { ssr: false });
+
+export default function AllenamentoPage() {
+  return <AllenamentoApp />;
+}
+
 import React, { useState, useEffect } from 'react';
 
 const allenamenti = {

@@ -26,7 +26,7 @@ export default function Home() {
         <section className="section-spaced">
           <h1>Benvenuto nella tua app di benessere</h1>
           <p>
-            <Link href="/programma">
+            <Link href="/allenamento">
               <a className="link-highlight">
                 Vai al programma Energia &amp; Postura
               </a>
