@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allenamento Base – App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 2rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+    }
+    .exercise {
+      margin-bottom: 2rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 0.5rem;
+    }
+    a {
+      color: #0066cc;
+    }
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Allenamento Base</h1>
+  <label for="settimana">Seleziona la settimana:</label>
+  <select id="settimana">
+    <option value="1">Settimana 1</option>
+    <option value="2">Settimana 2</option>
+  </select>
+
+  <div id="app"></div>
+
+  <script>
+    const allenamenti = {
+      1: {
+        intro: `Frequenza consigliata: 3 volte a settimana (es. lunedì – mercoledì – venerdì)<br>
+                Durata totale: 10–12 minuti<br>
+                Schema: 30 secondi esercizio / 30 secondi pausa – Ripeti il circuito 2 volte`,
+        video: "https://www.youtube.com/watch?v=UBMk30rjy0o",
+        esercizi: [
+          {
+            title: "1. Marcia sul posto",
+            description: "Marcia con le ginocchia sollevate e braccia attive.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/marching-in-place-exercise-illustration.jpg"
+          },
+          {
+            title: "2. Squat",
+            description: "Scendi piegando le ginocchia, mantieni la schiena dritta.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/squat-exercise-illustration.jpg"
+          },
+          {
+            title: "3. Cerchi con le braccia",
+            description: "Braccia tese, disegna cerchi in avanti e indietro.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/arm-circles-exercise-illustration.jpg"
+          },
+          {
+            title: "4. Plank a ginocchia",
+            description: "Appoggia gli avambracci e le ginocchia, tieni il corpo in linea.",
+            image: "https://www.spotebi.com/wp-content/uploads/2015/01/knee-plank-exercise-illustration.jpg"
+          },
+          {
+            title: "5. Stretching gambe seduto",
+            description: "Da seduto, allunga una gamba e raggiungi la punta del piede con le mani.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/seated-forward-bend-exercise-illustration.jpg"
+          }
+        ]
+      },
+      2: {
+        intro: `Frequenza consigliata: 3 volte a settimana (es. lunedì – mercoledì – venerdì)<br>
+                Durata totale: 12–15 minuti<br>
+                Schema: 30 secondi esercizio / 30 secondi pausa – Ripeti il circuito 2 volte`,
+        video: "https://www.youtube.com/watch?v=QWK9A_QbJ-k",
+        esercizi: [
+          {
+            title: "1. Jumping Jack lento o marcia veloce",
+            description: "Attivazione cardiovascolare moderata, adatta anche per principianti.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/jumping-jacks-exercise-illustration.jpg"
+          },
+          {
+            title: "2. Affondi alternati",
+            description: "Scendi piegando una gamba alla volta, mantieni l'equilibrio.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/lunges-exercise-illustration.jpg"
+          },
+          {
+            title: "3. Push-up inclinato (su muro o tavolo)",
+            description: "Appoggia le mani a un supporto stabile e piega le braccia mantenendo il corpo in linea.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/incline-push-up-exercise-illustration.jpg"
+          },
+          {
+            title: "4. Plank classico o a ginocchia",
+            description: "Attiva l'addome e mantieni la posizione.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/plank-exercise-illustration.jpg"
+          },
+          {
+            title: "5. Stretching finale (collo, schiena, gambe)",
+            description: "Rilassati e distendi i principali gruppi muscolari.",
+            image: "https://www.spotebi.com/wp-content/uploads/2014/10/seated-side-straddle-stretch-exercise-illustration.jpg"
+          }
+        ]
+      }
+    };
+
+    const app = document.getElementById('app');
+    const selector = document.getElementById('settimana');
+
+    function renderSettimana(n) {
+      const data = allenamenti[n];
+      app.innerHTML = '';
+
+      const intro = document.createElement('p');
+      intro.innerHTML = data.intro;
+      app.appendChild(intro);
+
+      data.esercizi.forEach(ex => {
+        const div = document.createElement('div');
+        div.className = 'exercise';
+
+        const h2 = document.createElement('h2');
+        h2.textContent = ex.title;
+        div.appendChild(h2);
+
+        const p = document.createElement('p');
+        p.textContent = ex.description;
+        div.appendChild(p);
+
+        const img = document.createElement('img');
+        img.src = ex.image;
+        img.alt = ex.title;
+        div.appendChild(img);
+
+        app.appendChild(div);
+      });
+
+      const videoHeading = document.createElement('h2');
+      videoHeading.textContent = 'Video YouTube di riferimento';
+      app.appendChild(videoHeading);
+
+      const videoLink = document.createElement('p');
+      videoLink.innerHTML = `<a href="${data.video}" target="_blank">
+        Guarda il video di riferimento
+      </a>`;
+      app.appendChild(videoLink);
+    }
+
+    selector.addEventListener('change', (e) => {
+      renderSettimana(e.target.value);
+    });
+
+    renderSettimana('1');
+  </script>
+</body>
+</html>
