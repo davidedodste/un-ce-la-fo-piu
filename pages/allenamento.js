@@ -2,10 +2,7 @@ import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 
-// pages/programma.js
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
 
 const allenamenti = {
   1: {
@@ -76,19 +73,28 @@ const allenamenti = {
   }
 };
 
-export default function AllenamentoApp() {
-  const [settimana, setSettimana] = useState(() => {
-    return parseInt(localStorage.getItem("settimana")) || 1;
-  });
+export default function Allenamento() {
+  const [settimana, setSettimana] = useState(1);
   const [currentExercise, setCurrentExercise] = useState(0);
   const [timeLeft, setTimeLeft] = useState(30);
   const [isRunning, setIsRunning] = useState(false);
-
-  const data = allenamenti[settimana];
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("settimana", settimana);
+    setHydrated(true);
+    if (typeof window !== "undefined") {
+      const saved = parseInt(localStorage.getItem("settimana"));
+      if (saved) setSettimana(saved);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("settimana", settimana);
+    }
   }, [settimana]);
+
+  const data = allenamenti[settimana];
 
   useEffect(() => {
     let timer;
@@ -115,58 +121,69 @@ export default function AllenamentoApp() {
   };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f4f4f4', padding: '2rem', color: '#333' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Allenamento Base</h1>
-      <label htmlFor="settimana">Seleziona la settimana: </label>
-      <select
-        id="settimana"
-        value={settimana}
-        onChange={(e) => setSettimana(Number(e.target.value))}
-        style={{ padding: '0.5rem', fontSize: '1rem', marginBottom: '1.5rem' }}
-      >
-        <option value={1}>Settimana 1</option>
-        <option value={2}>Settimana 2</option>
-      </select>
+    <>
+      <Head>
+        <title>Allenamento Base</title>
+        <meta name="description" content="Allenamento base settimanale per principianti" />
+      </Head>
+      <Header title="Allenamento Base" />
+      <main style={{ padding: '2rem', backgroundColor: '#f4f4f4', fontFamily: 'Arial' }}>
+        {hydrated && (
+          <>
+            <label htmlFor="settimana">Seleziona la settimana: </label>
+            <select
+              id="settimana"
+              value={settimana}
+              onChange={(e) => setSettimana(Number(e.target.value))}
+              style={{ padding: '0.5rem', fontSize: '1rem', marginBottom: '1.5rem' }}
+            >
+              <option value={1}>Settimana 1</option>
+              <option value={2}>Settimana 2</option>
+            </select>
 
-      <p dangerouslySetInnerHTML={{ __html: data.intro }} />
+            <p dangerouslySetInnerHTML={{ __html: data.intro }} />
 
-      <button onClick={startWorkout} style={{ padding: '0.7rem 1rem', fontSize: '1rem', marginBottom: '1rem', backgroundColor: '#28a745', color: '#fff', border: 'none', borderRadius: '6px' }}>Avvia Allenamento</button>
+            <button onClick={startWorkout} style={{ padding: '0.7rem 1rem', fontSize: '1rem', marginBottom: '1rem', backgroundColor: '#28a745', color: '#fff', border: 'none', borderRadius: '6px' }}>
+              Avvia Allenamento
+            </button>
 
-      {isRunning && (
-        <div style={{ marginBottom: '2rem', padding: '1rem', backgroundColor: '#fff', borderRadius: '8px' }}>
-          <h2 style={{ fontSize: '1.5rem' }}>{data.esercizi[currentExercise].title}</h2>
-          <p>{data.esercizi[currentExercise].description}</p>
-          <img
-            src={data.esercizi[currentExercise].image}
-            alt={data.esercizi[currentExercise].title}
-            style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
-          />
-          <h3 style={{ marginTop: '1rem' }}>Tempo restante: {timeLeft}s</h3>
-        </div>
-      )}
+            {isRunning ? (
+              <div style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', marginBottom: '2rem' }}>
+                <h2>{data.esercizi[currentExercise].title}</h2>
+                <p>{data.esercizi[currentExercise].description}</p>
+                <img
+                  src={data.esercizi[currentExercise].image}
+                  alt={data.esercizi[currentExercise].title}
+                  style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
+                />
+                <h3 style={{ marginTop: '1rem' }}>Tempo restante: {timeLeft}s</h3>
+              </div>
+            ) : (
+              <>
+                {data.esercizi.map((ex, idx) => (
+                  <div key={idx} style={{ marginBottom: '2rem' }}>
+                    <h2>{ex.title}</h2>
+                    <p>{ex.description}</p>
+                    <img
+                      src={ex.image}
+                      alt={ex.title}
+                      style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                    />
+                  </div>
+                ))}
 
-      {!isRunning && (
-        <>
-          {data.esercizi.map((ex, idx) => (
-            <div key={idx} style={{ marginBottom: '2rem' }}>
-              <h2 style={{ fontSize: '1.4rem', marginTop: '2rem' }}>{ex.title}</h2>
-              <p>{ex.description}</p>
-              <img
-                src={ex.image}
-                alt={ex.title}
-                style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', marginTop: '0.5rem' }}
-              />
-            </div>
-          ))}
-
-          <h2>Video YouTube di riferimento</h2>
-          <p>
-            <a href={data.video} target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc' }}>
-              Guarda il video di riferimento
-            </a>
-          </p>
-        </>
-      )}
-    </div>
+                <h2>Video YouTube di riferimento</h2>
+                <p>
+                  <a href={data.video} target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc' }}>
+                    Guarda il video di riferimento
+                  </a>
+                </p>
+              </>
+            )}
+          </>
+        )}
+      </main>
+      <Footer />
+    </>
   );
 }
